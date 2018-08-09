@@ -22,7 +22,11 @@
             btn = document.getElementById('btn');
 
             btn.addEventListener('click', () => {
+                socket.emit('messages', { input: input.value, nickname: nickname.value });
+            });
 
+            socket.on('messages', (data) => {
+                message.innerHTML += `<p>${data.nickname}: ${data.input}</p>`;
             });
     </script>
 </body>

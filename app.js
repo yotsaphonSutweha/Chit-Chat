@@ -13,9 +13,12 @@ function handler (req, res) {
         }
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
-        res.end;
+        res.end();
     });
     io.on('connection', (socket) => {
         console.log('Connection established');
+        socket.on('messages', (data) => {
+            io.sockets.emit('messages', data);
+        });
     });
 }

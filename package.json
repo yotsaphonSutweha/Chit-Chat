@@ -1,0 +1,14 @@
+{
+  "name": "chitchat2",
+  "version": "1.0.0",
+  "description": "Real Time Chat Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yo",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.1.1"
+  }
+}

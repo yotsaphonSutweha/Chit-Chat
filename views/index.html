@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <div id="message"></div>
+    <input type="text" id="nickname" placeholder="Name">
+    <input type="text" id="input" placeholder="Type in message">
+    <button id="btn">Send</button>
+
+    <script>
+        let socket = io();
+        let message = document.getElementById('message');
+            nickname = document.getElementById('nickname');
+            input = document.getElementById('input');
+            btn = document.getElementById('btn');
+
+            btn.addEventListener('click', () => {
+
+            });
+    </script>
+</body>
+</html>

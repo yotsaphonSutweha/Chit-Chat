@@ -5,7 +5,7 @@ const fs = require('fs');
 http.listen(8080, '127.0.0.1');
 
 function handler (req, res) {
-    fs.readFile(__dirname + '/index.html', 
+    fs.readFile(__dirname + '/views/index.html', 
     (err, data) => {
         if(err) {
             res.writeHead(500);
@@ -15,5 +15,7 @@ function handler (req, res) {
         res.write(data);
         res.end;
     });
-   
+    io.on('connection', (socket) => {
+        console.log('Connection established');
+    });
 }

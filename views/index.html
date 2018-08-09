@@ -16,15 +16,18 @@
 
     <script>
         let socket = io();
+
         let message = document.getElementById('message');
             nickname = document.getElementById('nickname');
             input = document.getElementById('input');
             btn = document.getElementById('btn');
 
+            // Emit an event to the server
             btn.addEventListener('click', () => {
                 socket.emit('messages', { input: input.value, nickname: nickname.value });
             });
 
+            // Socket on client side listens to the messages and render them out on screen
             socket.on('messages', (data) => {
                 message.innerHTML += `<p>${data.nickname}: ${data.input}</p>`;
             });

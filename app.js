@@ -17,7 +17,9 @@ function handler (req, res) {
     });
     io.on('connection', (socket) => {
         console.log('Connection established');
+        // The server listens to the event and receive data
         socket.on('messages', (data) => {
+            // The server emit the messages to every connected sockets 
             io.sockets.emit('messages', data);
         });
     });

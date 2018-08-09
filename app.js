@@ -22,5 +22,9 @@ function handler (req, res) {
             // The server emit the messages to every connected sockets 
             io.sockets.emit('messages', data);
         });
+
+        socket.on('typing', (data) => {
+            socket.broadcast.emit('typing', data);
+        });
     });
 }

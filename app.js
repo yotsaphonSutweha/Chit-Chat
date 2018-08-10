@@ -15,16 +15,18 @@ function handler (req, res) {
         res.write(data);
         res.end();
     });
-    io.on('connection', (socket) => {
-        console.log('Connection established');
-        // The server listens to the event and receive data
-        socket.on('messages', (data) => {
-            // The server emit the messages to every connected sockets 
-            io.sockets.emit('messages', data);
-        });
-
-        socket.on('typing', (data) => {
-            socket.broadcast.emit('typing', data);
-        });
-    });
 }
+
+io.on('connection', (socket) => {
+    console.log('Connection established');
+    io.sockets.emit('join', 'A user have join the room');
+    // The server listens to the event and receive data
+    socket.on('messages', (data) => {
+        // The server emit the messages to every connected sockets 
+        io.sockets.emit('messages', data);
+    });
+
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', data);
+    });
+});
